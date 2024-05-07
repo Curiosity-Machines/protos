@@ -17,9 +17,15 @@ message PeerMessage {
     string data = 1;
   }
 
+  message Uploaded {
+    int32 upload_id = 1;
+    string url = 2;
+  }
+
   oneof content {
     Authenticated authenticated = 1;
     AuthRequest auth_request = 2;
     MediaEvent media_event = 3;
+    Uploaded uploaded = 4;
   }
 }
