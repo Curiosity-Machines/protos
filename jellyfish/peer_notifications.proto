@@ -22,10 +22,21 @@ message PeerMessage {
     string url = 2;
   }
 
+<<<<<<< Updated upstream
+=======
+  message Action {
+    string action = 1;
+  }
+
+>>>>>>> Stashed changes
   oneof content {
     Authenticated authenticated = 1;
     AuthRequest auth_request = 2;
     MediaEvent media_event = 3;
     Uploaded uploaded = 4;
+<<<<<<< Updated upstream
+=======
+    Action action = 5;
+>>>>>>> Stashed changes
   }
 }
