@@ -22,10 +22,15 @@ message PeerMessage {
     string url = 2;
   }
 
+  message Action {
+    string action = 1;
+  }
+
   oneof content {
     Authenticated authenticated = 1;
     AuthRequest auth_request = 2;
     MediaEvent media_event = 3;
     Uploaded uploaded = 4;
+    Action action = 5;
   }
 }
