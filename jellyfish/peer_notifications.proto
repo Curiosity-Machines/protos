@@ -8,14 +8,10 @@ message PeerMessage {
   message Authenticated {}
 
   // Request sent by peer, to authenticate to JF server
-  message AuthRequest {
-    string token = 1;
-  }
+  message AuthRequest { string token = 1; }
 
   // Any type of WebRTC messages passed betweend JF and peer
-  message MediaEvent {
-    string data = 1;
-  }
+  message MediaEvent { string data = 1; }
 
   message Uploaded {
     int32 upload_id = 1;
@@ -24,6 +20,7 @@ message PeerMessage {
 
   message Action {
     string action = 1;
+    string data = 2;
   }
 
   oneof content {
