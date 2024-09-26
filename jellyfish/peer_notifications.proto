@@ -28,9 +28,9 @@ message PeerMessage {
   }
 
   message Located {
-    optional string host = 1;
-    optional float lat = 2;
-    optional float lon = 3;
+    string host = 1;
+    float lat = 2;
+    float lon = 3;
     optional bytes taxon_probabilities = 4;
   }
 
