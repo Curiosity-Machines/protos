@@ -24,11 +24,11 @@ message PeerMessage {
   }
 
   message LocatorRequest {
-    optional string previous_ip = 1;
+    optional string previous_host = 1;
   }
 
   message Located {
-    optional string ip = 1;
+    optional string host = 1;
     optional float lat = 2;
     optional float lon = 3;
     optional bytes taxon_probabilities = 4;
