@@ -23,11 +23,24 @@ message PeerMessage {
     string data = 2;
   }
 
+  message LocatorRequest {
+    optional string previous_ip = 1;
+  }
+
+  message Located {
+    optional string ip = 1;
+    optional float lat = 2;
+    optional float lon = 3;
+    optional bytes taxon_probabilities = 4;
+  }
+
   oneof content {
     Authenticated authenticated = 1;
     AuthRequest auth_request = 2;
     MediaEvent media_event = 3;
     Uploaded uploaded = 4;
     Action action = 5;
+    LocatorRequest locator_request = 6;
+    Located located = 7;
   }
 }
