@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package telemetry;
+
+// Import the Timestamp type from Google's well-known types
+import "google/protobuf/timestamp.proto";
+
+message Events {
+  repeated Event events = 1;
+}
+
+// Root message for telemetry events
+message Event {
+  google.protobuf.Timestamp recorded_at = 1;
+  string device_id = 2;
+  string device_name = 3;
+  string session_id = 4;
+
+  oneof event {
+    Action action = 5;
+    Snapshot snapshot = 6;
+  }
+}
+
+message Action {
+  oneof type {
+    DopAttached dop_attached = 1;
+    DopDetachedAction dop_detached = 2;
+    AgentShown agent_shown = 3;
+    AgentDismissed agent_dismissed = 4;
+    PTTReleased ptt_pressed = 5;
+    PTTPressed ptt_released = 6;
+  }
+}
+
+message DopAttached {
+  string url = 1;
+}
+
+message DopDetachedAction {}
+
+message AgentShown {}
+
+message AgentDismissed {}
+
+message PTTPressed {
+}
+
+message PTTReleased {
+  bool silent = 1;
+}
+
+message Snapshot {
+  google.protobuf.Timestamp session_started_at = 1;
+  int32 battery_level = 2;
+  string current_url = 3;
+}
+
