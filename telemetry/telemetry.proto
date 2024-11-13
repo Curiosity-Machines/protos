@@ -24,35 +24,19 @@ message Event {
 
 message Action {
   oneof type {
-    DopAttached dop_attached = 1;
-    DopDetachedAction dop_detached = 2;
-    AgentShown agent_shown = 3;
-    AgentDismissed agent_dismissed = 4;
-    PTTReleased ptt_pressed = 5;
-    PTTPressed ptt_released = 6;
+    Launched launched = 1;
+    TaxonIdentified taxon_identified = 2;
   }
 }
 
-message DopAttached {
-  string url = 1;
-}
+message Launched {}
 
-message DopDetachedAction {}
-
-message AgentShown {}
-
-message AgentDismissed {}
-
-message PTTPressed {
-}
-
-message PTTReleased {
-  bool silent = 1;
+message TaxonIdentified {
+  int32 taxon_id = 1;
 }
 
 message Snapshot {
   google.protobuf.Timestamp session_started_at = 1;
-  int32 battery_level = 2;
-  string current_url = 3;
+  string current_url = 2;
 }
 
